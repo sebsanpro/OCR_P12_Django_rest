@@ -13,7 +13,8 @@ class Event(models.Model):
     date_create = models.DateTimeField(_('Creation date'), auto_now_add=True)
     date_update = models.DateTimeField(_('Last update'), auto_now=True)
     support_contact = models.ForeignKey(settings.AUTH_USER_MODEL,
-                                        on_delete=models.CASCADE)
+                                        on_delete=models.CASCADE,
+                                        limit_choices_to={'groups__name': 'SUP'})
 
     class EventStatus(models.TextChoices):
         Created = 'CRE', _('Created')
