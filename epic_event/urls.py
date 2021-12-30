@@ -21,6 +21,13 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from rest_framework import routers
+
+from team_user.views import TeamSet
+
+router = routers.DefaultRouter()
+router.register(r'team', TeamSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # API urls
@@ -32,4 +39,4 @@ urlpatterns = [
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
-]
+] + router.urls
