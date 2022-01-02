@@ -16,6 +16,8 @@ import rest_framework.permissions
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import epic_event.permissions
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -154,7 +156,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': [
-            'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+            'rest_framework.permissions.IsAuthenticated',
+            'epic_event.permissions.CustomDjangoModelPermission',
         ]
 }
 # JWT settings
