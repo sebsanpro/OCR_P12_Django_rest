@@ -23,10 +23,16 @@ from rest_framework_simplejwt.views import (
 
 from rest_framework import routers
 
+from client.views import ClientSet
+from contract.views import ContractSet
+from event.views import EventSet
 from team_user.views import TeamSet
 
 router = routers.DefaultRouter()
 router.register(r'team', TeamSet)
+router.register(r'client', ClientSet)
+router.register(r'contract', ContractSet)
+router.register(r'event', EventSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
