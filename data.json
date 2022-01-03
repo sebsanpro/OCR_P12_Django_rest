@@ -1,5 +1,18 @@
 [
   {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2022-01-03T10:29:39.776",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "1",
+      "object_repr": "MNG",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+    }
+  },
+  {
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -329,8 +342,18 @@
     "fields": {
       "name": "MNG",
       "permissions": [
-        10,
-        12,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
         33,
         34,
         35,
@@ -495,9 +518,9 @@
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$260000$uFd04MXu1G0U2QNjCHfqQp$6SGbcKqw7m6yN6jmq9clKqbAxEg6COADjCMU4St2Hxw=",
-      "last_login": "2021-12-29T16:37:01.195",
+      "last_login": "2022-01-03T10:27:29.208",
       "is_superuser": true,
-      "username": "seb",
+      "username": "Admin",
       "first_name": "",
       "last_name": "",
       "email": "seb@seb.fr",
@@ -519,7 +542,7 @@
       "password": "pbkdf2_sha256$260000$TjitCDvxDp6czDsFHgzd7p$mSL5hprzCnGBgLPbfjgyNJ6XeTsXtbWpIL5wBhQEO0k=",
       "last_login": null,
       "is_superuser": false,
-      "username": "manager",
+      "username": "Manager",
       "first_name": "",
       "last_name": "",
       "email": "",
