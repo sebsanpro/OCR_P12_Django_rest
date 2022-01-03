@@ -30,9 +30,9 @@ from team_user.views import TeamSet
 
 router = routers.DefaultRouter()
 router.register(r'team', TeamSet)
-router.register(r'client', ClientSet)
-router.register(r'contract', ContractSet)
-router.register(r'event', EventSet)
+router.register(r'client', ClientSet, basename='client')
+router.register(r'contract', ContractSet, basename='contract')
+router.register(r'event', EventSet, basename='event')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
