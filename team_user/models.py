@@ -7,6 +7,10 @@ from django.utils.translation import gettext, gettext_lazy as _
 
 class EpicUser(AbstractUser):
     def save(self, *args, **kwargs):
+        if self.team == 'MNG':
+            self.is_staff = True
+        else:
+            self.is_staff = False
         super().save(*args, **kwargs)
         if self._password is not None:
             password_validation.password_changed(self._password, self)

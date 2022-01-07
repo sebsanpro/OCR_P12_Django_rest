@@ -28,6 +28,11 @@ from contract.views import ContractSet
 from event.views import EventSet
 from team_user.views import TeamSet
 
+
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
+
 router = routers.DefaultRouter()
 router.register(r'team', TeamSet)
 router.register(r'client', ClientSet, basename='client')
@@ -35,14 +40,16 @@ router.register(r'contract', ContractSet, basename='contract')
 router.register(r'event', EventSet, basename='event')
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    # API urls
-    path('api-auth/', include('rest_framework.urls')),
-    # Token API JWT
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    # Spectacular urls
-    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
-    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
-] + router.urls
+                  path('admin/', admin.site.urls),
+                  # Sentry test installation
+                  path('sentry-debug/', trigger_error),
+                  # API urls
+                  path('api-auth/', include('rest_framework.urls')),
+                  # Token API JWT
+                  path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+                  path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+                  # Spectacular urls
+                  path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+                  path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+                  path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+              ] + router.urls
